@@ -1,7 +1,9 @@
 object Form2: TForm2
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Margins.Left = 5
+  Margins.Right = 5
+  Caption = 'TCP to Serial'
   ClientHeight = 485
   ClientWidth = 657
   Color = clBtnFace
@@ -14,22 +16,6 @@ object Form2: TForm2
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object RadioGroup1: TRadioGroup
-    AlignWithMargins = True
-    Left = 5
-    Top = 3
-    Width = 647
-    Height = 46
-    Margins.Left = 5
-    Margins.Right = 5
-    Align = alTop
-    Caption = 'RadioGroup1'
-    Columns = 2
-    Items.Strings = (
-      'Server'
-      'Client')
-    TabOrder = 0
-  end
   object GroupBox1: TGroupBox
     AlignWithMargins = True
     Left = 5
@@ -40,7 +26,7 @@ object Form2: TForm2
     Margins.Right = 5
     Align = alTop
     Caption = 'Server'
-    TabOrder = 1
+    TabOrder = 0
     object cbServerServiceIP: TComboBox
       Left = 69
       Top = 17
@@ -66,9 +52,6 @@ object Form2: TForm2
       Alignment = taLeftJustify
       Caption = 'Using ABD?'
       TabOrder = 2
-      ExplicitLeft = 235
-      ExplicitTop = 19
-      ExplicitHeight = 17
     end
     object GroupBox3: TGroupBox
       AlignWithMargins = True
@@ -80,8 +63,6 @@ object Form2: TForm2
       Align = alRight
       Caption = 'ABD'
       TabOrder = 3
-      ExplicitTop = 17
-      ExplicitHeight = 174
       object RadioGroup2: TRadioGroup
         AlignWithMargins = True
         Left = 5
@@ -95,9 +76,6 @@ object Form2: TForm2
           'Called Me'
           'Called Device')
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 15
-        ExplicitWidth = 329
       end
       object Panel1: TPanel
         AlignWithMargins = True
@@ -108,9 +86,6 @@ object Form2: TForm2
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitLeft = 2
-        ExplicitTop = 55
-        ExplicitWidth = 329
         object StaticText2: TStaticText
           Left = 3
           Top = 8
@@ -128,6 +103,22 @@ object Form2: TForm2
         end
       end
     end
+    object StaticText3: TStaticText
+      Left = 11
+      Top = 47
+      Width = 59
+      Height = 17
+      Caption = 'ServicePort'
+      TabOrder = 4
+    end
+    object edtServerPort: TEdit
+      Left = 69
+      Top = 44
+      Width = 121
+      Height = 21
+      TabOrder = 5
+      Text = '27490'
+    end
   end
   object GroupBox2: TGroupBox
     AlignWithMargins = True
@@ -139,7 +130,54 @@ object Form2: TForm2
     Margins.Right = 5
     Align = alTop
     Caption = 'Client'
+    TabOrder = 1
+  end
+  object RadioGroup1: TRadioGroup
+    AlignWithMargins = True
+    Left = 5
+    Top = 3
+    Width = 647
+    Height = 46
+    Margins.Left = 5
+    Margins.Right = 5
+    Align = alTop
+    Caption = 'Type'
+    Columns = 2
+    Items.Strings = (
+      'Server'
+      'Client')
     TabOrder = 2
-    ExplicitTop = 166
+    ExplicitLeft = 0
+    ExplicitTop = -16
+  end
+  object GroupBox4: TGroupBox
+    AlignWithMargins = True
+    Left = 5
+    Top = 320
+    Width = 647
+    Height = 105
+    Margins.Left = 5
+    Margins.Right = 5
+    Align = alTop
+    Caption = 'GroupBox4'
+    TabOrder = 3
+    ExplicitLeft = 208
+    ExplicitWidth = 185
+    object btnRun: TButton
+      Left = 3
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Run'
+      TabOrder = 0
+    end
+    object btnStop: TButton
+      Left = 84
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Stop'
+      TabOrder = 1
+    end
   end
 end

@@ -19,6 +19,11 @@ type
     Panel1: TPanel;
     StaticText2: TStaticText;
     Edit1: TEdit;
+    GroupBox4: TGroupBox;
+    btnRun: TButton;
+    btnStop: TButton;
+    StaticText3: TStaticText;
+    edtServerPort: TEdit;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
