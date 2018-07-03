@@ -147,8 +147,6 @@ object Form2: TForm2
       'Server'
       'Client')
     TabOrder = 2
-    ExplicitLeft = 0
-    ExplicitTop = -16
   end
   object GroupBox4: TGroupBox
     AlignWithMargins = True
@@ -161,8 +159,6 @@ object Form2: TForm2
     Align = alTop
     Caption = 'GroupBox4'
     TabOrder = 3
-    ExplicitLeft = 208
-    ExplicitWidth = 185
     object btnRun: TButton
       Left = 3
       Top = 16
@@ -178,6 +174,15 @@ object Form2: TForm2
       Height = 25
       Caption = 'Stop'
       TabOrder = 1
+    end
+    object Button1: TButton
+      Left = 165
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'ServerTest'
+      TabOrder = 2
+      OnClick = Button1Click
     end
   end
 end

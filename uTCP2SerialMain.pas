@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, uWinSock;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, uWinSock, uServerTest;
 
 type
   TForm2 = class(TForm)
@@ -24,7 +24,9 @@ type
     btnStop: TButton;
     StaticText3: TStaticText;
     edtServerPort: TEdit;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,10 +41,27 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm2.Button1Click(Sender: TObject);
+var
+  testfrm:TForm3;
+  i:integer;
+begin
+      for i := 0 to application.ComponentCount -1 do
+    begin
+      if application.Components[i] is TForm3 then
+        begin
+          (application.Components[i] as TForm).show;
+          exit;
+        end;
+    end;
+    testfrm:=TForm3.Create(application);
+    testfrm.show;
+end;
+
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-  WS:=TWinSockLib.Create;
-  cbServerServiceIP.Items:=(WS.GetIP);
+  //WS:=TWinSockLib.Create;
+  //cbServerServiceIP.Items:=(WS.GetIP);
 end;
 
 end.
