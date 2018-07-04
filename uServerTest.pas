@@ -23,7 +23,7 @@ type
     procedure Button3Click(Sender: TObject);
     procedure ComPort1RxChar(Sender: TObject; Count: Integer);
   private
-    { Private declarations }
+    SerialBuf:string;
   public
     { Public declarations }
   end;
@@ -43,7 +43,9 @@ end;
 procedure TForm3.Button2Click(Sender: TObject);
 begin
   comport1.Connected:= true;
+  SerialBuf := '';
 end;
+
 
 procedure TForm3.Button3Click(Sender: TObject);
 begin
@@ -53,10 +55,15 @@ end;
 procedure TForm3.ComPort1RxChar(Sender: TObject; Count: Integer);
 var
   s:string;
-  buf:array[0..1023] of char;
+  buf:string;
+  c:char;
 begin
-  comport1.Read(buf,count);
-  memo1.Lines.Add(String(buf));
+  comport1.readstr(buf,count);
+  for c in buf do
+  begin
+      memo1.SelText:=c;
+  end;
+  //memo1.Lines.Add(buf);
 end;
 
 end.
